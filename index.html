@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaeef8">
+  <meta name="description" content="Простой список задач с сохранением в браузере.">
+  <title>Список задач</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="notebook">
+    <header>
+      <p id="today" class="date"></p>
+      <h1>Список задач</h1>
+      <div class="summary">
+        <span id="count" role="status"></span>
+        <progress id="progress" aria-label="Доля выполненных задач" max="1" value="0"></progress>
+      </div>
+    </header>
+    <section aria-label="Задачи">
+      <form id="add-task">
+        <input id="task-title" aria-label="Новая задача" placeholder="Что нужно сделать?" required maxlength="180" autocomplete="off">
+        <button type="submit"><span aria-hidden="true">＋</span> Добавить</button>
+      </form>
+      <p id="error" role="alert" hidden></p>
+      <p id="empty">Список пока пуст. Добавьте первую задачу.</p>
+      <ul id="tasks"></ul>
+    </section>
+  </main>
+  <template id="task-template">
+    <li>
+      <label><input type="checkbox"><span></span></label>
+      <button type="button" class="delete">×</button>
+    </li>
+  </template>
+</body>
+</html>
